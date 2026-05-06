@@ -26,7 +26,13 @@ function AppContent() {
       .catch(() => setDbStatus(false));
   }, []);
 
+  // Abort in-progress SSE on unmount
+  useEffect(() => {
+    return () => disconnect();
+  }, [disconnect]);
+
   const handleSubmit = (question: string) => {
+    disconnect();
     connect(question);
   };
 
@@ -64,7 +70,7 @@ function AppContent() {
           <AnswerCard answer={state.answer} isChitchat={state.isChitchat} />
         )}
 
-        {(state.phase === 'error' || (state.error && state.phase !== 'retrying')) && (
+        {state.phase === 'error' && (
           <ErrorDisplay
             error={state.error || 'Unknown error'}
             retryCount={state.retryCount}
