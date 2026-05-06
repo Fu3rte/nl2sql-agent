@@ -22,7 +22,7 @@ def run(state: AgentState) -> dict:
     display_rows = rows[:20]
 
     if not rows:
-        answer = "查询执行成功，但没有找到匹配的数据。"
+        answer = f"查询执行成功，SQL: {sql}，但没有找到匹配的数据。这可能是因为数据库中不存在满足条件的数据（例如阈值设定过高或筛选条件过严）。"
         return {"phase": "done", "answer": answer}
 
     prompt = (
