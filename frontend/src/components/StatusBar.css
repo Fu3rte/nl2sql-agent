@@ -1,0 +1,62 @@
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+}
+
+.status-step {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-step--active {
+  color: var(--color-text);
+}
+
+.status-step--done {
+  color: var(--color-text-secondary);
+}
+
+.status-step-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  font-size: 10px;
+  margin-right: var(--space-xs);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.status-step--active .status-step-dot {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.status-step--done .status-step-dot {
+  border-color: var(--color-text-muted);
+  background: var(--color-text-muted);
+  color: var(--color-bg);
+}
+
+.status-step-line {
+  width: 28px;
+  height: 1px;
+  background: var(--color-border);
+  margin: 0 var(--space-sm);
+  transition: background 0.3s;
+}
+
+.status-step--active .status-step-line {
+  background: var(--color-border);
+}

@@ -216,6 +216,25 @@ def init_db():
     conn.close()
 
 
+def get_schema_info() -> list[dict]:
+    """Return structured schema info for API responses."""
+    conn = get_connection()
+    tables = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
+    ).fetchall()
+
+    result = []
+    for (table_name,) in tables:
+        columns = conn.execute(f"PRAGMA table_info('{table_name}')").fetchall()
+        result.append({
+            "name": table_name,
+            "columns": [{"name": col["name"], "type": col["type"]} for col in columns],
+        })
+
+    conn.close()
+    return result
+
+
 def get_schema_text() -> str:
     """Return full schema text for injection into LLM prompts."""
     conn = get_connection()

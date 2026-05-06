@@ -1,0 +1,21 @@
+.answer-card {
+  border-left: 2px solid var(--color-text);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.answer-card--chitchat {
+  border-left-color: var(--color-border-strong);
+}
+
+.answer-card-text {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

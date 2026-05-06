@@ -1,8 +1,23 @@
-import { useEffect, useState } from 'react';
-import { QueryProvider } from './context/QueryContext';
+import { useEffect, useState, useContext } from 'react';
+import { QueryProvider, QueryContext } from './context/QueryContext';
 import { checkHealth } from './services/api';
+import { useSSE } from './hooks/useSSE';
+import QueryInput from './components/QueryInput';
+import StatusBar from './components/StatusBar';
+import SqlDisplay from './components/SqlDisplay';
+import ResultTable from './components/ResultTable';
+import AnswerCard from './components/AnswerCard';
+import ErrorDisplay from './components/ErrorDisplay';
+
+function useQueryContext() {
+  const ctx = useContext(QueryContext);
+  if (!ctx) throw new Error('QueryContext not found');
+  return ctx;
+}
 
 function AppContent() {
+  const { state, dispatch } = useQueryContext();
+  const { connect, disconnect } = useSSE(dispatch);
   const [dbStatus, setDbStatus] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -10,6 +25,18 @@ function AppContent() {
       .then((res) => setDbStatus(res.db_loaded))
       .catch(() => setDbStatus(false));
   }, []);
+
+  const handleSubmit = (question: string) => {
+    connect(question);
+  };
+
+  const handleReset = () => {
+    disconnect();
+    dispatch({ type: 'RESET' });
+  };
+
+  const isProcessing =
+    state.phase !== 'idle' && state.phase !== 'done' && state.phase !== 'error';
 
   return (
     <div className="app">
@@ -23,7 +50,27 @@ function AppContent() {
       </header>
 
       <main className="app-main">
-        {/* Wave 2 components will be assembled here */}
+        <QueryInput onSubmit={handleSubmit} disabled={isProcessing} />
+
+        <StatusBar phase={state.phase} retryCount={state.retryCount} />
+
+        {state.sql && !state.isChitchat && <SqlDisplay sql={state.sql} />}
+
+        {state.columns && state.rows && !state.isChitchat && (
+          <ResultTable columns={state.columns} rows={state.rows} />
+        )}
+
+        {state.answer && (
+          <AnswerCard answer={state.answer} isChitchat={state.isChitchat} />
+        )}
+
+        {(state.phase === 'error' || (state.error && state.phase !== 'retrying')) && (
+          <ErrorDisplay
+            error={state.error || 'Unknown error'}
+            retryCount={state.retryCount}
+            onReset={handleReset}
+          />
+        )}
       </main>
     </div>
   );

@@ -1,0 +1,33 @@
+.error-display {
+  border-left: 2px solid var(--color-error);
+  background: var(--color-error-bg);
+  border-radius: var(--radius-sm);
+}
+
+.error-display-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.error-display-header .card-header {
+  margin-bottom: 0;
+  color: var(--color-error);
+}
+
+.error-display-retry {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+}
+
+.error-display-message {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
