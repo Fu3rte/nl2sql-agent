@@ -1,3 +1,5 @@
+import './ResultTable.css';
+
 interface Props {
   columns: string[];
   rows: Record<string, unknown>[];

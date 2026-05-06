@@ -47,26 +47,26 @@
 
 /* highlight.js theme overrides — monochrome with subtle tints */
 .sql-code-block .hljs-keyword {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .sql-code-block .hljs-string {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.55);
 }
 
 .sql-code-block .hljs-number {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .sql-code-block .hljs-built_in {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .sql-code-block .hljs-type {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .sql-code-block .hljs-comment {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(0, 0, 0, 0.3);
   font-style: italic;
 }

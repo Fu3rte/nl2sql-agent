@@ -1,3 +1,5 @@
+import './ErrorDisplay.css';
+
 interface Props {
   error: string;
   retryCount: number;

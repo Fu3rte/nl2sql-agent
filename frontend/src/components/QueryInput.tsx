@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './QueryInput.css';
 
 interface Props {
   onSubmit: (question: string) => void;

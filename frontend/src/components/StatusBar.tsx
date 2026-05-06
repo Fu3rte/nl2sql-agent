@@ -1,4 +1,5 @@
 import type { AgentPhase } from '../types';
+import './StatusBar.css';
 
 interface Props {
   phase: AgentPhase;

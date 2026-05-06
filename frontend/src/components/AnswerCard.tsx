@@ -1,3 +1,5 @@
+import './AnswerCard.css';
+
 interface Props {
   answer: string;
   isChitchat: boolean;

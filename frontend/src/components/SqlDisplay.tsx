@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import hljs from 'highlight.js/lib/core';
 import sql from 'highlight.js/lib/languages/sql';
+import './SqlDisplay.css';
 
 hljs.registerLanguage('sql', sql);
 

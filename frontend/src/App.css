@@ -1,21 +1,21 @@
-/* ===== CSS Design Tokens — xAI Brutalist Dark Theme ===== */
+/* ===== CSS Design Tokens — Light Theme ===== */
 :root {
   /* Colors */
-  --color-bg: #1f2228;
-  --color-surface: rgba(255, 255, 255, 0.03);
-  --color-surface-hover: rgba(255, 255, 255, 0.08);
-  --color-text: #ffffff;
-  --color-text-secondary: rgba(255, 255, 255, 0.7);
-  --color-text-muted: rgba(255, 255, 255, 0.5);
-  --color-text-disabled: rgba(255, 255, 255, 0.3);
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-border-strong: rgba(255, 255, 255, 0.2);
+  --color-bg: #ffffff;
+  --color-surface: rgba(0, 0, 0, 0.02);
+  --color-surface-hover: rgba(0, 0, 0, 0.05);
+  --color-text: #1a1a1a;
+  --color-text-secondary: rgba(0, 0, 0, 0.6);
+  --color-text-muted: rgba(0, 0, 0, 0.45);
+  --color-text-disabled: rgba(0, 0, 0, 0.25);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-strong: rgba(0, 0, 0, 0.2);
   --color-focus-ring: rgba(59, 130, 246, 0.5);
-  --color-error: #ef4444;
-  --color-error-bg: rgba(239, 68, 68, 0.08);
-  --color-success: #22c55e;
-  --color-code-bg: rgba(255, 255, 255, 0.05);
-  --color-code-text: #e2e8f0;
+  --color-error: #dc2626;
+  --color-error-bg: rgba(220, 38, 38, 0.06);
+  --color-success: #16a34a;
+  --color-code-bg: rgba(0, 0, 0, 0.04);
+  --color-code-text: #1e293b;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -183,7 +183,7 @@ body {
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.85);
 }
 
 /* Ghost — outlined */
