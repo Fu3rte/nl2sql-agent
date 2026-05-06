@@ -8,6 +8,8 @@ chitchat_llm = ChatOpenAI(
     api_key=settings.llm_api_key,
     base_url=settings.llm_base_url,
     temperature=0.3,
+    timeout=30,
+    max_retries=2,
 )
 
 
