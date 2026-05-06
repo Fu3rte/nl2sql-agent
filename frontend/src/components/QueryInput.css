@@ -7,7 +7,7 @@
 .query-input-wrapper {
   display: flex;
   gap: var(--space-sm);
-  align-items: flex-end;
+  align-items: stretch;
 }
 
 .query-input-textarea {
@@ -18,7 +18,7 @@
   color: var(--color-text);
   background: transparent;
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-sm);
+  border-radius: 8px;
   outline: none;
   resize: none;
   line-height: 1.5;
@@ -42,7 +42,7 @@
 .query-input-btn {
   padding: 12px 24px;
   white-space: nowrap;
-  height: fit-content;
+  border-radius: 8px;
 }
 
 .query-input-examples {
