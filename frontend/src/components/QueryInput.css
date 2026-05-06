@@ -39,7 +39,7 @@
   cursor: not-allowed;
 }
 
-.query-input-btn {
+.btn.query-input-btn {
   padding: 12px 24px;
   white-space: nowrap;
   border-radius: 8px;
